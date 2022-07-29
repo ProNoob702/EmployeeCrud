@@ -1,4 +1,5 @@
 ﻿using EmployeeCrud.Data;
+using EmployeeCrud.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeCrud.Web.Extensions
@@ -11,6 +12,9 @@ namespace EmployeeCrud.Web.Extensions
             services.AddDbContext<DataContext>(
                 options => options.UseSqlServer(config.GetConnectionString("SQLDatabase"))
             );
+
+            // Register custom services
+            services.AddSingleton<IEmployeeService, EmployeeService>();
         }
 
     }
