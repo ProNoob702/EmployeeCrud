@@ -1,4 +1,4 @@
-namespace EmployeeCrud.Web
+namespace EmployeeCrud.Web.Models
 {
     public class WeatherForecast
     {
