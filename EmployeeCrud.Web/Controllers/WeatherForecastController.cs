@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using EmployeeCrud.Web.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeCrud.Web.Controllers
 {
