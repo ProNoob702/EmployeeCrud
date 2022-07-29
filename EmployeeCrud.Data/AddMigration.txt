@@ -1,5 +1,0 @@
-﻿cd EmployeeCrud.Web
-dotnet ef --project ../EmployeeCrud.Data --startup-project ./ migrations add "migration" --context DataContext
-
-//update
-dotnet ef --project ../EmployeeCrud.Data --startup-project ./ database update --context DataContext
