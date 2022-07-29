@@ -14,7 +14,7 @@ namespace EmployeeCrud.Web.Extensions
             );
 
             // Register custom services
-            services.AddSingleton<IEmployeeService, EmployeeService>();
+            services.AddScoped<IEmployeeService, EmployeeService>();
         }
 
     }

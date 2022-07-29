@@ -15,11 +15,11 @@ namespace EmployeeCrud.Web.Services
 
         public async Task<IEnumerable<Employee>> GetAll(CancellationToken cancellationToken)
         {
-            return await _dbContext.Employees.ToListAsync(cancellationToken);
+            return await _dbContext.Employees.AsNoTracking().ToListAsync(cancellationToken);
         }
         public async Task<Employee?> Get(int id, CancellationToken cancellationToken)
         {
-            return await _dbContext.Employees.FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
+            return await _dbContext.Employees.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
 
         public async Task<Employee?> Create(Employee emp, CancellationToken cancellationToken)
