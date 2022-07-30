@@ -23,9 +23,17 @@ import { AddEmployeeComponent } from "./components/addEmployee/addEmployee.compo
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { ToastrModule } from "ngx-toastr";
 import { EditEmployeeComponent } from "./components/editEmployee/editEmployee.component";
+import { AskConfirmComponent } from "./components/askConfirm/askConfirm.component";
 
 @NgModule({
-  declarations: [AppComponent, NavMenuComponent, HomeComponent, EditEmployeeComponent, AddEmployeeComponent],
+  declarations: [
+    AppComponent,
+    NavMenuComponent,
+    HomeComponent,
+    EditEmployeeComponent,
+    AddEmployeeComponent,
+    AskConfirmComponent,
+  ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
     HttpClientModule,

@@ -5,6 +5,7 @@ import { ToastrService } from "ngx-toastr";
 import { IEmployee, IEmployeeWithoutId } from "src/app/models/IEmployee";
 import { EmployeeService } from "src/app/services/employee.service";
 import { AddEmployeeComponent } from "../addEmployee/addEmployee.component";
+import { AskConfirmComponent } from "../askConfirm/askConfirm.component";
 import { EditEmployeeComponent } from "../editEmployee/editEmployee.component";
 
 @Component({
@@ -69,5 +70,22 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  askConfirmDelete(row: IEmployee) {}
+  askConfirmDelete(index: number, row: IEmployee) {
+    const dialogRef = this.dialog.open(AskConfirmComponent, { data: { ...row } });
+    dialogRef.afterClosed().subscribe((res: boolean | undefined) => {
+      if (res) {
+        this.employeeService.Delete(row.id).subscribe(
+          () => {
+            const dataSrcNewInstance = [...this.dataSource];
+            dataSrcNewInstance.splice(index, 1);
+            this.dataSource = dataSrcNewInstance;
+            this.toastr.success("Employee has been deleted");
+          },
+          () => {
+            this.toastr.error("Employee deletion failed");
+          }
+        );
+      }
+    });
+  }
 }
