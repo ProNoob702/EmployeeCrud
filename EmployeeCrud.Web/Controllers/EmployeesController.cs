@@ -22,6 +22,7 @@ namespace EmployeeCrud.Web.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll(CancellationToken cancellationToken = default)
         {
             var foundList = await _employeeService.GetAll(cancellationToken);

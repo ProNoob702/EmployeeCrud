@@ -53,14 +53,14 @@ export class AuthService {
   }
 
   setLocalStorage(x: ILoginResult) {
-    this.localStorageService.setInfo("access_token", x.accessToken);
-    this.localStorageService.setInfo("refresh_token", x.refreshToken);
-    this.localStorageService.setInfo("login-event", "login" + Math.random());
+    this.localStorageService.setStr("access_token", x.accessToken);
+    this.localStorageService.setStr("refresh_token", x.refreshToken);
+    this.localStorageService.setStr("login-event", "login" + Math.random());
   }
 
   clearLocalStorage() {
     this.localStorageService.clearInfo("access_token");
     this.localStorageService.clearInfo("refresh_token");
-    this.localStorageService.setInfo("logout-event", "logout" + Math.random());
+    this.localStorageService.setStr("logout-event", "logout" + Math.random());
   }
 }

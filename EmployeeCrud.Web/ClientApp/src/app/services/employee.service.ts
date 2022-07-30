@@ -2,10 +2,6 @@ import { Inject, Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { IEmployee, IEmployeeWithoutId } from "../models/IEmployee";
 
-const headers: HttpHeaders["headers"] = {
-  "Content-Type": "application/json",
-};
-
 @Injectable({
   providedIn: "root",
 })
@@ -17,35 +13,25 @@ export class EmployeeService {
   }
 
   getAll() {
-    return this.http.get<IEmployee[]>(this.employeeApiBaseUrl, {
-      headers: headers,
-    });
+    return this.http.get<IEmployee[]>(this.employeeApiBaseUrl);
   }
 
   get(id: number) {
     const url = `${this.employeeApiBaseUrl}/${id}`;
-    return this.http.get<IEmployee>(url, {
-      headers: headers,
-    });
+    return this.http.get<IEmployee>(url);
   }
 
   Create(newEmp: IEmployeeWithoutId) {
-    return this.http.post<IEmployee>(this.employeeApiBaseUrl, newEmp, {
-      headers: headers,
-    });
+    return this.http.post<IEmployee>(this.employeeApiBaseUrl, newEmp);
   }
 
   Update(id: number, updatedEmp: IEmployee) {
     const url = `${this.employeeApiBaseUrl}/${id}`;
-    return this.http.put<IEmployee>(url, updatedEmp, {
-      headers: headers,
-    });
+    return this.http.put<IEmployee>(url, updatedEmp);
   }
 
   Delete(id: number) {
     const url = `${this.employeeApiBaseUrl}/${id}`;
-    return this.http.delete(url, {
-      headers: headers,
-    });
+    return this.http.delete(url);
   }
 }
