@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./layout/nav-menu/nav-menu.component";
@@ -25,6 +25,8 @@ import { ToastrModule } from "ngx-toastr";
 import { EditEmployeeComponent } from "./components/editEmployee/editEmployee.component";
 import { AskConfirmComponent } from "./components/askConfirm/askConfirm.component";
 import { LoginComponent } from "./components/login/login.component";
+import { JwtInterceptor } from "./security/jwt.interceptor";
+import { UnauthorizedInterceptor } from "./security/unauthorized.interceptor";
 
 @NgModule({
   declarations: [
@@ -44,6 +46,7 @@ import { LoginComponent } from "./components/login/login.component";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
+
     /* Angular material */
     MatSliderModule,
     MatButtonModule,
@@ -56,7 +59,14 @@ import { LoginComponent } from "./components/login/login.component";
     MatDialogModule,
     MatFormFieldModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

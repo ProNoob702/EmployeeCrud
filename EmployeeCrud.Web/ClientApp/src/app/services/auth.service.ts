@@ -27,13 +27,13 @@ export class AuthService {
   login(username: string, password: string) {
     return this.http.post<ILoginResult>(`${this.accountApiBaseUrl}/login`, { username, password }).pipe(
       map((x) => {
+        debugger;
         this._user.next({
           username: x.username,
           role: x.role,
           originalUserName: x.originalUserName,
         });
         this.setLocalStorage(x);
-        // this.startTokenTimer();
         return x;
       })
     );
@@ -46,32 +46,10 @@ export class AuthService {
         finalize(() => {
           this.clearLocalStorage();
           this._user.next(null);
-          // this.stopTokenTimer();
           this.router.navigate(["login"]);
         })
       )
       .subscribe();
-  }
-
-  refreshToken(): Observable<ILoginResult | null> {
-    const refreshToken = localStorage.getItem("refresh_token");
-    if (!refreshToken) {
-      this.clearLocalStorage();
-      return of(null);
-    }
-
-    return this.http.post<ILoginResult>(`${this.accountApiBaseUrl}/refresh-token`, { refreshToken }).pipe(
-      map((x) => {
-        this._user.next({
-          username: x.username,
-          role: x.role,
-          originalUserName: x.originalUserName,
-        });
-        this.setLocalStorage(x);
-        // this.startTokenTimer();
-        return x;
-      })
-    );
   }
 
   setLocalStorage(x: ILoginResult) {

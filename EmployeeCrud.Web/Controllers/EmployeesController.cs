@@ -1,6 +1,7 @@
 ﻿using EmployeeCrud.Domain;
 using EmployeeCrud.Web.Models.DTO;
 using EmployeeCrud.Web.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeCrud.Web.Controllers
@@ -28,6 +29,7 @@ namespace EmployeeCrud.Web.Controllers
         }
 
         [HttpGet, Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> Get([FromRoute] int id, CancellationToken cancellationToken = default)
         {
             var emp = await _employeeService.Get(id, cancellationToken);
@@ -36,6 +38,7 @@ namespace EmployeeCrud.Web.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> Create([FromBody] EmployeeDTO newEmp, CancellationToken cancellationToken = default)
         {
             var emp = await _employeeService.Create(newEmp, cancellationToken);
@@ -44,6 +47,7 @@ namespace EmployeeCrud.Web.Controllers
         }
 
         [HttpPut, Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] Employee updatedEmp,  CancellationToken cancellationToken = default)
         {
             var isOk = await _employeeService.Update(id, updatedEmp , cancellationToken);
@@ -51,6 +55,7 @@ namespace EmployeeCrud.Web.Controllers
         }
 
         [HttpDelete, Route("{id}")]
+        [Authorize]
         public async Task<IActionResult> Delete([FromRoute] int id, CancellationToken cancellationToken = default)
         {
             var isOk = await _employeeService.Delete(id,cancellationToken);
