@@ -1,0 +1,199 @@
+// Flexbox
+.flexStartStartRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.flexEndStartRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.flexEndCenterRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.inheritMinHeight {
+  min-height: inherit;
+}
+
+.flexStartCenterRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexCenterCenterRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexCenterStartRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.flexCenterRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flexCenterCol {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+}
+.flexEndRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.flexStartSpaceBetweenRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.flexSpaceBetween {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flexColumnSpaceBetween {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flexColumnSpaceBetweenEnd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.flexColumnSpaceBetweenCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.flexColumnSpaceBetweenStart {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.flexStartCenterColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flexStartStartColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.flexStartEndColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.flexColumnCenterCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
+
+.fillTheGap {
+  flex: auto;
+  min-width: 0;
+}
+
+.flexRowAlignCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.flexColumnAlignCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flexColumnAlignStart {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.alignSelfStart {
+  align-self: flex-start;
+}
+
+.takeTheRest {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.flexWrap {
+  flex-wrap: wrap;
+}
+
+.noWrap {
+  flex-wrap: nowrap;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flexFullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.flexBloc {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  &__column {
+    flex-basis: 100%;
+    flex: 1;
+  }
+}

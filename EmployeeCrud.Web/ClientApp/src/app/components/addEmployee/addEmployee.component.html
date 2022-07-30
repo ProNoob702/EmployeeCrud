@@ -1,0 +1,61 @@
+<div class="container">
+  <h1 mat-dialog-title>Add Employee</h1>
+  <form mat-dialog-content (ngSubmit)="onClickSubmit(form.value)" [formGroup]="form">
+    <div class="tsp-8 full-width">
+      <mat-form-field color="accent">
+        <input
+          matInput
+          #input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          name="email"
+          formControlName="email"
+          required
+        />
+        <mat-error *ngIf="submitted && f.email.errors">
+          <div *ngIf="f.email.errors.required">Email is required</div>
+          <div *ngIf="f.email.errors.email">Email is invalid</div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="tsp-8 full-width">
+      <mat-form-field color="accent">
+        <input
+          matInput
+          #input
+          type="text"
+          class="form-control"
+          placeholder="FirstName"
+          name="firstName"
+          formControlName="firstName"
+          required
+        />
+        <mat-error *ngIf="submitted && f.firstName.errors">
+          <div *ngIf="f.firstName.errors.required">FirstName is required</div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="tsp-8 full-width">
+      <mat-form-field color="accent">
+        <input
+          matInput
+          #input
+          type="text"
+          class="form-control"
+          placeholder="LastName"
+          name="lastName"
+          formControlName="lastName"
+          required
+        />
+        <mat-error *ngIf="submitted && f.lastName.errors">
+          <div *ngIf="f.lastName.errors.required">LastName is required</div>
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="flexStartCenterRow tsp-8">
+      <button mat-raised-button type="submit" color="primary" class="rsp-8">Create</button>
+      <button mat-button (click)="onCancelClick()">Cancel</button>
+    </div>
+  </form>
+</div>
