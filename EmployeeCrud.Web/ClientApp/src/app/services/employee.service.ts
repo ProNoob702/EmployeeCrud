@@ -1,18 +1,18 @@
-import { Inject, Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { IEmployee } from '../models/IEmployee';
+import { Inject, Injectable } from "@angular/core";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { IEmployee, IEmployeeWithoutId } from "../models/IEmployee";
 
-const headers: HttpHeaders['headers'] = {
-  'Content-Type': 'application/json',
+const headers: HttpHeaders["headers"] = {
+  "Content-Type": "application/json",
 };
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: "root",
 })
 export class EmployeeService {
   private employeeApiBaseUrl: string;
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private http: HttpClient, @Inject("BASE_URL") baseUrl: string) {
     this.employeeApiBaseUrl = `${baseUrl}api/employees`;
   }
 
@@ -29,7 +29,7 @@ export class EmployeeService {
     });
   }
 
-  Create(newEmp: IEmployee) {
+  Create(newEmp: IEmployeeWithoutId) {
     return this.http.post<IEmployee>(this.employeeApiBaseUrl, newEmp, {
       headers: headers,
     });

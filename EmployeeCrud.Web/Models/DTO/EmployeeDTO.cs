@@ -1,11 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeCrud.Domain
+namespace EmployeeCrud.Web.Models.DTO
 {
-    public class Employee
+    public class EmployeeDTO
     {
-        [Key]
-        public int Id { get; set; }
         [Required]
         public string Email { get; set; } = null!;
         [Required]

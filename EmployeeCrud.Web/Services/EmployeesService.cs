@@ -1,5 +1,7 @@
-﻿using EmployeeCrud.Data;
+﻿using AutoMapper;
+using EmployeeCrud.Data;
 using EmployeeCrud.Domain;
+using EmployeeCrud.Web.Models.DTO;
 using Microsoft.EntityFrameworkCore;
 
 namespace EmployeeCrud.Web.Services
@@ -7,10 +9,12 @@ namespace EmployeeCrud.Web.Services
     public class EmployeeService : IEmployeeService
     {
         public DataContext _dbContext { get; }
+        public IMapper _mapper { get; }
 
-        public EmployeeService(DataContext dbContext)
+        public EmployeeService(DataContext dbContext, IMapper mapper)
         {
             _dbContext = dbContext;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<Employee>> GetAll(CancellationToken cancellationToken)
@@ -22,8 +26,9 @@ namespace EmployeeCrud.Web.Services
             return await _dbContext.Employees.AsNoTracking().FirstOrDefaultAsync(x => x.Id == id, cancellationToken);
         }
 
-        public async Task<Employee?> Create(Employee emp, CancellationToken cancellationToken)
+        public async Task<Employee?> Create(EmployeeDTO empDto, CancellationToken cancellationToken)
         {
+            var emp = _mapper.Map<Employee>(empDto);
             var res = await _dbContext.Employees.AddAsync(emp, cancellationToken);
             _dbContext.SaveChanges();
             return res.Entity;

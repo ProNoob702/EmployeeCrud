@@ -1,5 +1,5 @@
 <div class="flexColumn">
-  <h1 mat-dialog-title>Add Employee</h1>
+  <h1 mat-dialog-title>Edit Employee {{ data.email }}</h1>
   <form mat-dialog-content (ngSubmit)="onClickSubmit(form.value)" [formGroup]="form">
     <div class="tsp-8 full-width">
       <mat-form-field color="accent">
@@ -54,7 +54,7 @@
       </mat-form-field>
     </div>
     <div class="flexStartCenterRow tsp-8">
-      <button mat-raised-button type="submit" color="primary" class="rsp-8">Create</button>
+      <button mat-raised-button type="submit" color="primary" class="rsp-8">Edit</button>
       <button mat-button (click)="onCancelClick()">Cancel</button>
     </div>
   </form>

@@ -1,27 +1,27 @@
 import { Component, Inject, OnInit } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { IEmployeeWithoutId } from "src/app/models/IEmployee";
+import { IEmployee, IEmployeeWithoutId } from "src/app/models/IEmployee";
 import { EmployeeService } from "src/app/services/employee.service";
 
 @Component({
-  selector: "app-addEmployee",
-  templateUrl: "./addEmployee.component.html",
-  styleUrls: ["./addEmployee.component.scss"],
+  selector: "app-editEmployee",
+  templateUrl: "./editEmployee.component.html",
+  styleUrls: ["./editEmployee.component.scss"],
 })
-export class AddEmployeeComponent implements OnInit {
+export class EditEmployeeComponent implements OnInit {
   form: FormGroup;
   public submitted: boolean = false;
 
   constructor(
-    public dialogRef: MatDialogRef<AddEmployeeComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: IEmployeeWithoutId,
+    public dialogRef: MatDialogRef<EditEmployeeComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: IEmployee,
     public employeeService: EmployeeService
   ) {
     this.form = new FormGroup({
-      email: new FormControl("", [Validators.required, Validators.email]),
-      firstName: new FormControl("", [Validators.required]),
-      lastName: new FormControl("", [Validators.required]),
+      email: new FormControl(data.email, [Validators.required, Validators.email]),
+      firstName: new FormControl(data.firstName, [Validators.required]),
+      lastName: new FormControl(data.lastName, [Validators.required]),
     });
   }
 
@@ -29,7 +29,9 @@ export class AddEmployeeComponent implements OnInit {
     return this.form.controls;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("data", this.data);
+  }
 
   onClickSubmit(formData: IEmployeeWithoutId) {
     this.submitted = true;
@@ -39,7 +41,7 @@ export class AddEmployeeComponent implements OnInit {
       return;
     }
 
-    this.dialogRef.close(formData);
+    this.dialogRef.close({ ...formData, id: this.data.id });
   }
 
   onCancelClick(): void {

@@ -1,4 +1,5 @@
 ﻿using EmployeeCrud.Data;
+using EmployeeCrud.Web.Profiles;
 using EmployeeCrud.Web.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,6 +16,9 @@ namespace EmployeeCrud.Web.Extensions
 
             // Register custom services
             services.AddScoped<IEmployeeService, EmployeeService>();
+
+            // Register AutoMapper profiles
+            services.AddAutoMapper(typeof(AutoMapperProfiles));
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using EmployeeCrud.Domain;
+using EmployeeCrud.Web.Models.DTO;
 using EmployeeCrud.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -35,7 +36,7 @@ namespace EmployeeCrud.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] Employee newEmp, CancellationToken cancellationToken = default)
+        public async Task<IActionResult> Create([FromBody] EmployeeDTO newEmp, CancellationToken cancellationToken = default)
         {
             var emp = await _employeeService.Create(newEmp, cancellationToken);
             if (emp == null) return BadRequest("Employee creation failed");

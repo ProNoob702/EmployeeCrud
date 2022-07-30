@@ -6,7 +6,6 @@ import { RouterModule } from "@angular/router";
 import { AppComponent } from "./app.component";
 import { NavMenuComponent } from "./layout/nav-menu/nav-menu.component";
 import { HomeComponent } from "./components/home/home.component";
-import { FetchDataComponent } from "./components/fetch-data/fetch-data.component";
 import { routes } from "./routes/routes";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MatSliderModule } from "@angular/material/slider";
@@ -23,9 +22,10 @@ import { MatToolbarModule } from "@angular/material/toolbar";
 import { AddEmployeeComponent } from "./components/addEmployee/addEmployee.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { ToastrModule } from "ngx-toastr";
+import { EditEmployeeComponent } from "./components/editEmployee/editEmployee.component";
 
 @NgModule({
-  declarations: [AppComponent, NavMenuComponent, HomeComponent, FetchDataComponent, AddEmployeeComponent],
+  declarations: [AppComponent, NavMenuComponent, HomeComponent, EditEmployeeComponent, AddEmployeeComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
     HttpClientModule,

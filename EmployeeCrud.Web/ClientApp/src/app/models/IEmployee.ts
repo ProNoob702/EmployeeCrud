@@ -4,3 +4,9 @@ export interface IEmployee {
   lastName: string;
   email: string;
 }
+
+export interface IEmployeeWithoutId {
+  firstName: string;
+  lastName: string;
+  email: string;
+}
