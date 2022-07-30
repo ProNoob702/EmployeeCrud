@@ -3,3 +3,5 @@ dotnet ef --project ../EmployeeCrud.Data --startup-project ./ migrations add "mi
 
 //update
 dotnet ef --project ../EmployeeCrud.Data --startup-project ./ database update --context DataContext
+
+dotnet ef --project ../EmployeeCrud.Data --startup-project ./ migrations remove

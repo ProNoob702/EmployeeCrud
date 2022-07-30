@@ -24,6 +24,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { ToastrModule } from "ngx-toastr";
 import { EditEmployeeComponent } from "./components/editEmployee/editEmployee.component";
 import { AskConfirmComponent } from "./components/askConfirm/askConfirm.component";
+import { LoginComponent } from "./components/login/login.component";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { AskConfirmComponent } from "./components/askConfirm/askConfirm.componen
     EditEmployeeComponent,
     AddEmployeeComponent,
     AskConfirmComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: "ng-cli-universal" }),
