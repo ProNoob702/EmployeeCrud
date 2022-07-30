@@ -39,7 +39,7 @@ export class AddEmployeeComponent implements OnInit {
       return;
     }
 
-    console.log("formData", formData);
+    this.dialogRef.close(formData);
   }
 
   onCancelClick(): void {

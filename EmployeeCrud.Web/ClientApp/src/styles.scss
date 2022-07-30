@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("./assets/css/_flexUtilities.scss");
 @import url("./assets/css/_spacingUtilities.scss");
+@import "~ngx-toastr/toastr";
 
 /* Provide sufficient contrast against white background */
 a {

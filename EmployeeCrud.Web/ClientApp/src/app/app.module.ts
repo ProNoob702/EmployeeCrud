@@ -22,6 +22,7 @@ import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AddEmployeeComponent } from "./components/addEmployee/addEmployee.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
+import { ToastrModule } from "ngx-toastr";
 
 @NgModule({
   declarations: [AppComponent, NavMenuComponent, HomeComponent, FetchDataComponent, AddEmployeeComponent],
@@ -32,6 +33,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot(), // ToastrModule added
     /* Angular material */
     MatSliderModule,
     MatButtonModule,
