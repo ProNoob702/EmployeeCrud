@@ -1,51 +1,41 @@
-<div class="text-center mb-4">
-  <img
-    class="mb-4 rounded-circle"
-    src="assets/apple-icon-180x180.png"
-    alt="logo"
-    loading="lazy"
-    width="180"
-    height="180"
-  />
-  <h1 class="h3 mb-3">.NET Labs</h1>
+<div class="loginContainer">
+  <mat-card class="loginInner">
+    <form (ngSubmit)="login()">
+      <div class="tsp-8 full-width">
+        <mat-form-field color="accent">
+          <input
+            id="userName"
+            matInput
+            #input
+            type="text"
+            placeholder="Username"
+            name="username"
+            [(ngModel)]="username"
+            required
+            class="form-control"
+          />
+        </mat-form-field>
+      </div>
+      <div class="tsp-8 full-width">
+        <mat-form-field color="accent">
+          <input
+            id="inputPassword"
+            matInput
+            #input
+            type="password"
+            placeholder="Password"
+            name="username"
+            [(ngModel)]="password"
+            required
+            class="form-control"
+          />
+        </mat-form-field>
+      </div>
+      <div class="tsp-8 flexColumn">
+        <span>Demo - Email: user2@hotmail.com | Password: User.123</span>
+      </div>
+      <div class="checkbox mb-3 text-danger tsp-8" *ngIf="loginError">Login failed. Please try again.</div>
+      <button mat-raised-button type="submit" color="primary" [disabled]="busy" class="tsp-16">Sign in</button>
+    </form>
+  </mat-card>
 </div>
-
-<form class="form-signin" (ngSubmit)="login()">
-  <div class="form-label-group">
-    <input
-      type="text"
-      id="userName"
-      name="username"
-      [(ngModel)]="username"
-      class="form-control"
-      placeholder="Username"
-      required
-      autofocus
-    />
-    <label for="userName">Username</label>
-  </div>
-  <div class="form-label-group">
-    <input
-      type="password"
-      id="inputPassword"
-      name="password"
-      [(ngModel)]="password"
-      class="form-control"
-      placeholder="Password"
-      required
-    />
-    <label for="inputPassword">Password</label>
-  </div>
-
-  <div class="checkbox mb-3 text-danger" *ngIf="loginError">Login failed. Please try again.</div>
-  <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="busy">Sign in</button>
-
-  <div class="small text-secondary mt-3 d-none d-sm-flex">
-    <strong>Example logins:</strong>
-    <ul>
-      <li>user2@hotmail.com : User.123</li>
-      <li>test1: password1</li>
-      <li>test2: password2</li>
-    </ul>
-  </div>
-</form>

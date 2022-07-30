@@ -8,7 +8,12 @@ import { NavMenuComponent } from "./layout/nav-menu/nav-menu.component";
 import { HomeComponent } from "./components/home/home.component";
 import { routes } from "./routes/routes";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { MatSliderModule } from "@angular/material/slider";
+import { ToastrModule } from "ngx-toastr";
+import { EditEmployeeComponent } from "./components/editEmployee/editEmployee.component";
+import { AskConfirmComponent } from "./components/askConfirm/askConfirm.component";
+import { LoginComponent } from "./components/login/login.component";
+import { JwtInterceptor } from "./security/jwt.interceptor";
+import { UnauthorizedInterceptor } from "./security/unauthorized.interceptor";
 
 /* Angular material */
 import { MatButtonModule } from "@angular/material/button";
@@ -21,12 +26,8 @@ import { MatTableModule } from "@angular/material/table";
 import { MatToolbarModule } from "@angular/material/toolbar";
 import { AddEmployeeComponent } from "./components/addEmployee/addEmployee.component";
 import { MatFormFieldModule } from "@angular/material/form-field";
-import { ToastrModule } from "ngx-toastr";
-import { EditEmployeeComponent } from "./components/editEmployee/editEmployee.component";
-import { AskConfirmComponent } from "./components/askConfirm/askConfirm.component";
-import { LoginComponent } from "./components/login/login.component";
-import { JwtInterceptor } from "./security/jwt.interceptor";
-import { UnauthorizedInterceptor } from "./security/unauthorized.interceptor";
+import { MatSliderModule } from "@angular/material/slider";
+import { MatCardModule } from "@angular/material/card";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,6 @@ import { UnauthorizedInterceptor } from "./security/unauthorized.interceptor";
     BrowserAnimationsModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(), // ToastrModule added
-
     /* Angular material */
     MatSliderModule,
     MatButtonModule,
@@ -58,6 +58,7 @@ import { UnauthorizedInterceptor } from "./security/unauthorized.interceptor";
     MatPaginatorModule,
     MatDialogModule,
     MatFormFieldModule,
+    MatCardModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
