@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Systems\Services\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\EmployeeCrud.Web\EmployeeCrud.Web.csproj" />
   </ItemGroup>
 
