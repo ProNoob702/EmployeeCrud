@@ -11,14 +11,10 @@ namespace EmployeeCrud.Web.Controllers
     public class EmployeesController : ControllerBase
     {
         public IEmployeeService _employeeService { get; }
-        public ILogger<EmployeesController> _logger { get; }
 
-        public EmployeesController(
-           IEmployeeService employeeService,
-           ILogger<EmployeesController> logger) : base()
+        public EmployeesController(IEmployeeService employeeService) : base()
         {
             _employeeService = employeeService;
-            _logger = logger;
         }
 
         [HttpGet]
@@ -42,6 +38,10 @@ namespace EmployeeCrud.Web.Controllers
         [Authorize]
         public async Task<IActionResult> Create([FromBody] EmployeeDTO newEmp, CancellationToken cancellationToken = default)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest("Employee creation failed");
+            }
             var emp = await _employeeService.Create(newEmp, cancellationToken);
             if (emp == null) return BadRequest("Employee creation failed");
             return Ok(emp);
