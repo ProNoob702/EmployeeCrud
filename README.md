@@ -2,10 +2,13 @@
 This project was project with dotnet angular spa template , I did use .NET 6 and Angular 13
 
 # Screenshots 
+### Login page
 ![image](https://user-images.githubusercontent.com/16271638/182013585-8862931c-b8cc-4392-9a39-aeac250e30cc.png)
 ---
+### Login credentials
 ![image](https://user-images.githubusercontent.com/16271638/182013595-fce57cb1-4ed9-430d-9cbf-ab077632c74c.png)
 ---
+### Employees page
 ![image](https://user-images.githubusercontent.com/16271638/182013607-7b5b02b5-9584-4c11-9fb0-6c3c0750887b.png)
 
 # Solution projects 
