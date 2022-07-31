@@ -29,7 +29,6 @@ namespace EmployeeCrud.Data
 
             base.OnModelCreating(modelBuilder);
 
-
         }
     }
 }
