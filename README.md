@@ -1,5 +1,5 @@
 # Intro 
-This project was project with dotnet angular spa template , I did use .NET 6 and Angular 13
+This project was created with dotnet angular spa template , I did use .NET 6 and Angular 13
 
 # Screenshots 
 ### Login page
